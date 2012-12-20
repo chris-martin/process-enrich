@@ -9,12 +9,24 @@ case class StringBuilderProcessLogger
     (v: ProcessOutput[StringBuilder] = ProcessOutput(() => new StringBuilder()))
     extends ProcessLogger {
 
-  override def out(s: => String) { v.out append s }
-  override def err(s: => String) { v.err append s }
+  import StringBuilderProcessLogger._
+
+  override def out(s: => String) { appendLine(v.out, s) }
+  override def err(s: => String) { appendLine(v.err, s) }
 
   override def buffer[T](f: => T): T = f
 
   /** Turn the `StringBuffer`s into `String`s. */
   def stringOutput: ProcessOutput[String] = v map (_.mkString)
+
+}
+
+object StringBuilderProcessLogger {
+
+  val lineSeparator: String = sys.props("line.separator")
+
+  def appendLine(sb: StringBuilder, x: String) {
+    sb.append(x).append(lineSeparator)
+  }
 
 }
