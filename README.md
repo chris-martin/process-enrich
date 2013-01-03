@@ -18,3 +18,17 @@ val x = Seq("ls", "/nonexistantfilepath").stringOutput
 print("Out: [ %s ]\nErr: [ %s ]".format(x.out.trim, x.err.trim))
 ```
 
+Download
+--------
+
+Process-enrich is available from Maven Central.
+The latest version is 1.0.
+
+```xml
+<dependency>
+  <groupId>org.codeswarm</groupId>
+  <artifactId>process-enrich_2.9.2</artifactId>
+  <version>1.0</version>
+</dependency>
+```
+
