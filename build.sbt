@@ -6,7 +6,9 @@ scalaVersion := "2.9.2"
 
 organization := "org.codeswarm"
 
-homepage := Some(url("https://github.com/codeswarm"))
+organizationHomepage := Some(url("https://github.com/codeswarm"))
+
+homepage := Some(url("https://github.com/codeswarm/process-enrich"))
 
 licenses := Seq(
   "The Apache Software License, Version 2.0" ->
